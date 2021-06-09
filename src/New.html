@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+  <body>
+    <table id="tblData">
+
+      <tr style="background-color:#03256c; color:#fff;">
+      <!--<th> Sr. No. </th>-->
+      <th> Name </th>
+      <th> Mobile no. </th>
+      <th> Gender </th>
+      <th> Date of Birth </th>
+      <th> Photo Id </th>
+      <th> Photo Id Number </th>
+      <th> Image </th>
+      </tr>
+      
+      <tr>
+                <!--<th>19</th>-->
+                <th> abc </th>
+                <th> 1234567890 </th>
+                <th> M </th>
+                <th> 2021-06-04 </th>
+                <th> Aadhaar Card </th>
+                <th> 9876543210 </th>
+                <th> <img src='' alt='Photo_Id_Image' style='width: 50px; height:50px;' > </th>
+                </tr><tr>
+                <!--<th>21</th>-->
+                <th> Kartik </th>
+                <th> 8979461325 </th>
+                <th> M </th>
+                <th> 2021-06-12 </th>
+                <th> Driving License </th>
+                <th> 4679132580 </th>
+                <th> <img src='' alt='Photo_Id_Image' style='width: 50px; height:50px;' > </th>
+                </tr><tr>
+                <!--<th>24</th>-->
+                <th> inrshad </th>
+                <th> 9876543210 </th>
+                <th> M </th>
+                <th> 2021-06-17 </th>
+                <th> Driving License </th>
+                <th> 1649785646 </th>
+                <th> <img src='' alt='Photo_Id_Image' style='width: 50px; height:50px;' > </th>
+                </tr><tr>
+                <!--<th>25</th>-->
+                <th> Kartik </th>
+                <th> 1010101010 </th>
+                <th> M </th>
+                <th> 2021-06-16 </th>
+                <th> Driving License </th>
+                <th> 4679132581 </th>
+                <th> <img src='' alt='Photo_Id_Image' style='width: 50px; height:50px;' > </th>
+                </tr><tr>
+                <!--<th>28</th>-->
+                <th> Kartik </th>
+                <th> 9876543210 </th>
+                <th> M </th>
+                <th> 2021-06-09 </th>
+                <th> Pension Passbook </th>
+                <th> 6497816522 </th>
+                <th> <img src='' alt='Photo_Id_Image' style='width: 50px; height:50px;' > </th>
+                </tr>
+      </table>
+      <button  type="button" id="export" onclick="exportTableToExcel('tblData')">Export List</button>
+      <script>
+        function exportTableToExcel(tableID, filename = '') {
+            var downloadLink;
+            var dataType = 'application/vnd.ms-excel';
+            var tableSelect = document.getElementById(tableID);
+            var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+    
+            // Specify file name
+            filename = filename ? filename + '.xls' : 'excel_data.xls';
+    
+            // Create download link element
+            downloadLink = document.createElement("a");
+    
+            document.body.appendChild(downloadLink);
+    
+            if (navigator.msSaveOrOpenBlob) {
+                var blob = new Blob(['\ufeff', tableHTML], {
+                    type: dataType
+                });
+                navigator.msSaveOrOpenBlob(blob, filename);
+            } else {
+                // Create a link to the file
+                downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+                // Setting the file name
+                downloadLink.download = filename;
+    
+                //triggering the function
+                downloadLink.click();
+            }
+        }
+    </script>
+
+
+  
+  </body>
+</html>

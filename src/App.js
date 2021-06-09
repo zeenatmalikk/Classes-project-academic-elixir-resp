@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { Highlight } from "@material-ui/icons";
+import "./App.css";
+import Navheader from "./Navbar/Navheader";
+import About from "./screens/About";
+import Banner from "./screens/Banner";
+import Courses from "./screens/Courses";
+import Footer from "./screens/Footer";
+import Students from "./screens/Students";
+import Teachers from "./screens/Teachers";
+import Welcome from "./screens/Welcome";
+import Whyus from "./screens/Whyus";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navheader />
+      <Banner />
+      <Welcome />
+      <Students />
+      <Courses />
+      <Teachers />
+
+      <Whyus />
+      <Footer/>
     </div>
   );
 }
